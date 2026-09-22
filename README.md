@@ -18,11 +18,14 @@ The canonical version of every product fact lives on the website. Where an artic
 
 ## Official API example repositories
 
-Each product has its own repository with an OpenAPI contract, a machine-readable `product.json`, an `llms.txt` summary and runnable examples in seven languages.
+One repository per product, each with an OpenAPI contract, a machine-readable `product.json`, an `llms.txt` summary and runnable examples in seven languages.
 
-| Product | Repository |
-|---|---|
-| [Original Carrier Lookup](https://github.com/carrierlookup/phone-carrier-lookup-api) | `phone-carrier-lookup-api` |
+| Product | Shape | Repository |
+|---|---|---|
+| [Original Carrier Lookup](https://github.com/carrierlookup/phone-carrier-lookup-api) | Realtime | `phone-carrier-lookup-api` |
+| [Bulk Global Carrier Lookup](https://github.com/carrierlookup/bulk-carrier-lookup-api) | Bulk (async) | `bulk-carrier-lookup-api` |
+
+A **realtime** check answers inside the same HTTP response (`POST /api/v1/check`, or `POST /api/v1/batch-check` for up to 100 identifiers). A **bulk task** takes a file and answers later (`POST /api/v1/bulk-tasks`). They are separate endpoints and are not interchangeable.
 
 ## Responsible use
 
